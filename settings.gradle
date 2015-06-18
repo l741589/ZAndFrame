@@ -1,0 +1,1 @@
+include ':app', ':view', ':nav', ':net', ':core', ':util', ':universalimageloader_plugin', ':pluginmanager', ':ormlite_plugin'

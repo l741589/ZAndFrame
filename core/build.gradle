@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+group = 'com.z.andframe'
+version = '1.0.0'
+artifacts {
+    archives file('core.aar')
+}
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file://E:/library/m2")
+            pom.groupId = "com.z.andframe"
+            pom.version = '1.0.0'
+            pom.artifactId = 'core'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:22.0.0'
+    compile project(':nav')
+    compile project(':net')
+    compile project(':view')
+    compile project(':util')
+    compile project(':pluginmanager')
+}

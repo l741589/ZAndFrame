@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">View</string>
+    <string name="zaf__action_login">com.zandframe.action.LOGIN</string>
+</resources>
