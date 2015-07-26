@@ -18,7 +18,7 @@ android {
     }
 }
 group = 'com.bigzhao.andframe'
-version = '1.0.0'
+version = '1.0.1'
 artifacts {
     archives file('util.aar')
 }
@@ -27,7 +27,7 @@ uploadArchives {
         mavenDeployer {
             repository(url: "file://E:/library/m2")
             pom.groupId = "com.bigzhao.andframe"
-            pom.version = '1.0.0'
+            pom.version = '1.0.1'
             pom.artifactId = 'util'
         }
     }
