@@ -17,7 +17,7 @@ android {
         }
     }
 }
-group = 'com.z.andframe'
+group = 'com.bigzhao.andframe'
 version = '1.0.0'
 artifacts {
     archives file('pluginmanager.aar')
@@ -26,7 +26,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: "file://E:/library/m2")
-            pom.groupId = "com.z.andframe"
+            pom.groupId = "com.bigzhao.andframe"
             pom.version = '1.0.0'
             pom.artifactId = 'pluginmanager'
         }

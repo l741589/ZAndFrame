@@ -1,4 +1,4 @@
-package com.z.andframe.plugin.ormlite;
+package com.bigzhao.andframe.plugin.ormlite;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

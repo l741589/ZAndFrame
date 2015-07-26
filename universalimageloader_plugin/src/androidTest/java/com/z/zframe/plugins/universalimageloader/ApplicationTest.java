@@ -1,4 +1,4 @@
-package com.z.zframe.plugins.universalimageloader;
+package com.bigzhao.zframe.plugins.universalimageloader;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

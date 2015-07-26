@@ -6,7 +6,7 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "com.z.zandframedemo.MainActivity"/>
+        className = "com.bigzhao.zandframedemo.MainActivity"/>
       <point      
         x = "500"      
         y = "100"/>

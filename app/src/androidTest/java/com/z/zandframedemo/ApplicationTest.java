@@ -1,4 +1,4 @@
-package com.z.zandframedemo;
+package com.bigzhao.zandframedemo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

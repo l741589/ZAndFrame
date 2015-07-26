@@ -1,4 +1,4 @@
-package com.z.andframe.pluginmanager;
+package com.bigzhao.andframe.pluginmanager;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

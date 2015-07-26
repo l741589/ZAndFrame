@@ -1,4 +1,4 @@
-package com.z.andframe.util;
+package com.bigzhao.andframe.util;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

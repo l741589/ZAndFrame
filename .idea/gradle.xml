@@ -5,7 +5,8 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="D:\Program Files\Android\Android Studio\gradle\gradle-2.2.1" />
+        <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1" />
+        <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -18,10 +19,10 @@
             <option value="$PROJECT_DIR$/universalimageloader_plugin" />
             <option value="$PROJECT_DIR$/util" />
             <option value="$PROJECT_DIR$/view" />
+            <option value="$PROJECT_DIR$/zorm" />
           </set>
         </option>
       </GradleProjectSettings>
     </option>
   </component>
 </project>
-
