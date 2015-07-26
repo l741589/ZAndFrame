@@ -55,6 +55,12 @@ public class Ref {
         return fs;
     }
 
+    public static Method getMethod(Class<?> cls,String name){
+        List<Method> mm=getAllMethods(cls);
+        for (Method m:mm) if (m.getName().equals(name)) return m;
+        return null;
+    }
+
     public static Field getField(Class<?> cls, String name, String... stopPrefix){
         if (stopPrefix==null) stopPrefix=new String[0];
         ArrayList<Field> fs=new ArrayList<>();
@@ -74,7 +80,10 @@ public class Ref {
 
 
     static public Object getValue(Object target,String fieldName) throws NoSuchFieldException, IllegalAccessException {
-        Field f=target.getClass().getField(fieldName);
+        Class<?> cls;
+        if (target instanceof Class) cls=(Class<?>)target;
+        else cls=target.getClass();
+        Field f=cls.getField(fieldName);
         return f.get(target);
     }
 

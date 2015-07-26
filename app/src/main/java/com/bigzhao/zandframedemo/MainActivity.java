@@ -1,12 +1,15 @@
 package com.bigzhao.zandframedemo;
 
 import android.content.Context;
+import android.provider.ContactsContract;
+import android.provider.Telephony;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bigzhao.andframe.zorm.ZOrm;
 import com.j256.ormlite.dao.Dao;
 import com.bigzhao.andframe.binder.ZBinder;
 import com.bigzhao.andframe.binder.annotions.ZBind;
@@ -23,6 +26,7 @@ import com.bigzhao.zandframedemo.db.TestModel;
 import com.bigzhao.zandframedemo.request.Test_Get;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @ZBind(id=R.layout.activity_main)
 public class MainActivity extends ZBaseActivity {
@@ -40,12 +44,16 @@ public class MainActivity extends ZBaseActivity {
     @ZDataBase(table = TestModel.class) private Dao<TestModel,?> tmdao;
     //@ZBind private Button button;
     //@ZBind private Button button2;
-
+    @SuppressWarnings("NewApi")
+    private final String contentUri= Telephony.Sms.Sent.CONTENT_URI.toString();
+    @ZOrm(table ="var://android.provider.Telephony$Sms$Sent/CONTENT_URI")
+    private List<Object> obj;
 
     @Override
     public Request<?> initRequest() {
-        request(FormRequest.class).set("number",123).set("text","123").setPath("Test/Get").exec();
-        return  request(FormRequest.class).add(ZBinder.createForm(this)).setPath("Test/Get");
+        return null;
+        //request(FormRequest.class).set("number",123).set("text","123").setPath("Test/Get").exec();
+        //return  request(FormRequest.class).add(ZBinder.createForm(this)).setPath("Test/Get");
     }
 
     @Override

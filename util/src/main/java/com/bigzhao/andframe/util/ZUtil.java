@@ -2,11 +2,13 @@ package com.bigzhao.andframe.util;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -74,6 +76,31 @@ public class ZUtil {
                 run.run();
             }
         }.execute();
+    }
+
+    public static Object resolveVariale(Uri uri){
+        if (!uri.getScheme().equals("var")) throw new IllegalArgumentException("Scheme must be 'var'");
+        try {
+            Class cls = Class.forName(uri.getHost());
+            List<String> paths=uri.getPathSegments();
+            Object obj=null;
+            for (String path:paths) {
+                if (path.contains("(")&&path.endsWith(")")){
+                    int lb=path.indexOf('(');
+                    int rb=path.length()-2;
+                    String mn=path.substring(0,lb);
+                    String[] args=path.substring(lb+1,rb+1).split(",");
+                    Method m=Ref.getMethod(obj==null?cls:obj.getClass(),mn);
+                    obj=m.invoke(obj,args);
+                }else {
+                    obj= Ref.getValue(obj==null?cls:obj,path);
+                }
+            }
+            return obj;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
 
