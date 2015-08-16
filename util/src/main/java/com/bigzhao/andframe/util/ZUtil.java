@@ -91,7 +91,7 @@ public class ZUtil {
                     String mn=path.substring(0,lb);
                     String[] args=path.substring(lb+1,rb+1).split(",");
                     Method m=Ref.getMethod(obj==null?cls:obj.getClass(),mn);
-                    obj=m.invoke(obj,args);
+                    obj=m.invoke(obj,(Object[])args);
                 }else {
                     obj= Ref.getValue(obj==null?cls:obj,path);
                 }

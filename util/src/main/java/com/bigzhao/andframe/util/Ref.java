@@ -154,13 +154,17 @@ public class Ref {
             dexField.setAccessible(true);
 
             return (DexFile[]) dexField.get(classLoader);
-        } catch (NoSuchFieldException|IllegalAccessException e) {
-
-        }
+        } catch (NoSuchFieldException e) {}
+        catch(IllegalAccessException e){}
         try {
-            dexField=BaseDexClassLoader.class.getDeclaredFields()[1];
-            dexField.setAccessible(true);
-            Object x=dexField.get(classLoader);
+            Object x=null;
+            try {
+                x=getSuperValue(classLoader, "pathList");
+            }catch(Exception e) {
+                dexField = BaseDexClassLoader.class.getDeclaredFields()[1];
+                dexField.setAccessible(true);
+                x=dexField.get(classLoader);
+            }
             Object elements=Ref.getSuperValue(x,"dexElements");
             int l=Array.getLength(elements);
             ArrayList<DexFile> files=new ArrayList<>();
@@ -172,8 +176,10 @@ public class Ref {
 
             Log.d("", "");
             return files.toArray(new DexFile[0]);
-        } catch (IllegalAccessException|NoSuchFieldException e1) {
+        } catch (IllegalAccessException e1) {
             e1.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
         }
         return null;
     }
